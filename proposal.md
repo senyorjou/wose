@@ -120,6 +120,30 @@ API has three different endpoint families for three different purposes
 | User completes smart-path. Sends END payload   | ->  | Stores  |
 |   |<- |OK  |
 
+##### Dream upload
+
+|APP  |   |API   |
+|---|---|---|
+| User request dream annotation   | ->  |   |
+|   |<- | Sends first question with 3 answers  |
+| User answers YES/NO/DON'T KNOW   | ->  |   |
+|   |<- |Sends following questions with X answers  |
+|   | repeat | |
+|  | <- |  Sends End of story|
+
+
+#### Schemas
+##### AUTH & USER API Architecture
+![](aut_user_api.png) 
+
+
+##### LOG & DEVICE API
+![](log_api.png) 
+
+##### ORACLE API & BI CONNECTION
+![](oracle_bi.png) 
+
+
 
 ## Tools & technologies
 #### Mock devices. Simulation of wearables
@@ -156,7 +180,7 @@ API has three different endpoint families for three different purposes
 - Python backend
 - Storage: Neo4j
     - Graph database. State + Action -> State
-    - Capable of storing logical paths of a plot by using Actors, Scenarios and Actions, and thta's what a dream is.     
+    - Capable of storing logical paths of a plot by using Actors, Scenarios and Actions, and that's what a dream is.
 
 Developer X Activities 
 In order to make developers active across several parts of the project a possible developer activity matrix could look like:
@@ -170,9 +194,7 @@ In order to make developers active across several parts of the project a possibl
 |QA dev     |   |   |   |   |   | + |+++|   |   |
 |Data Sc.   |   |   |   |   |   |   | + |+++|   |
 
-+++ = Main task
-++  = Could collaborate actively
-+   = Could lend a hand if necessary
++++ = Main task | ++  = Could collaborate actively | + = Could lend a hand if necessary
 
 
 ## Testing
@@ -180,7 +202,7 @@ In order to make developers active across several parts of the project a possibl
 I suggest adopt a BDD approach to cover Integration and E2E tests.
 BDD gives the abstraction of natural language to cover all aspects of the application, and since the whole product requires the expertise of quite different fields, a common language used by everybody could help.
 
-(Behave)[http://pythonhosted.org/behave/], a BDD python framework is a perfect choice for this, since the definition of scenarios link directly to user stories that should be fulfilled at its turn by different teams.
+[Behave](http://pythonhosted.org/behave/), a BDD python framework is a perfect choice for this, since the definition of scenarios link directly to user stories that should be fulfilled at its turn by different teams.
 
 Each application, also, must provide its complete Unit Tests
 
